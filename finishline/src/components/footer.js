@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // useNavigate 추가
 import { StyleSheet, css } from 'aphrodite';
+import { Link } from 'react-router-dom';
 
 // 이미지 파일 import
 import logo3 from '../assets/images/logo3.png';
@@ -47,27 +48,31 @@ function Footer() {
                 </div>
                 <p className={css(styles.footerService)}>더 나은 서비스로 보답하겠습니다.</p>
                 <div className={css(styles.contactCircle)}>CONTACT</div>
-                <p className={css(styles.footerTeam)}>softwareTeam@cku.ac.kr</p>
-                <p className={css(styles.footerGitLink)}>www.softwareTeam.github.com</p>
+                <Link to="/팀 이메일 링크" className={css(styles.navLink)}>softwareTeam@cku.ac.kr</Link>
+                <Link to="/깃허브링크" className={css(styles.footerGitLink)}>www.softwareTeam.github.com</Link>
             </div>
 
             {/* 푸터 오른쪽 영역 */}
             <div className={css(styles.footerRight)}>
                 <div className={css(styles.footerButtons)} ref={languageRef}>
                     <button className={css(styles.footerButton)} onClick={toggleLanguageDropdown}>
-                        <i className="드롭다운 버튼"></i> 한국어 <span className={css(styles.arrow)}>▼</span>
+                        <i className=""></i> 한국어 <span className={css(styles.arrow)}>▼</span>
                     </button>
                     {isLanguageOpen && (
                         <div className={css(styles.dropdownMenu)}>
-                            <a href="영어 선택" className={css(styles.dropdownLink)} onClick={handleLanguageSelect}>English</a>
-                            <a href="한국어 선택" className={css(styles.dropdownLink)} onClick={handleLanguageSelect}>한국어</a>
+                            
+                            {/* a href="" 안에 맞는 링크를 넣기 */}
+                            <a href="" className={css(styles.dropdownLink)} onClick={handleLanguageSelect}>English</a>
+                            <a href="" className={css(styles.dropdownLink)} onClick={handleLanguageSelect}>한국어</a>
                         </div>
                     )}
                 </div>
 
                 <div className={css(styles.footerLinks)}>
-                    <a href="누르면 처리방침 이동 " className={css(styles.footerLink)}>개인정보 처리방침</a>
-                    <a href="누르면 약관 이동" className={css(styles.footerLink)}>이용약관</a>
+
+                    {/* a href="" 안에 맞는 링크를 넣기 */}
+                    <a href="" className={css(styles.footerLink)}>개인정보 처리방침</a>
+                    <a href="" className={css(styles.footerLink)}>이용약관</a>
                 </div>
                 <p className={css(styles.footerRightText)}>
                     &copy; 2024 CKU Software Engineering student All rights reserved.
@@ -146,6 +151,11 @@ const styles = StyleSheet.create({
         padding: '0',
         fontSize: '11px',
         marginTop: '8px',
+        textDecoration: 'none', // 밑줄 제거
+        color: 'inherit', // 부모 요소의 색상 상속
+        ':hover': {
+            textDecoration: 'none', // 호버 상태에서도 밑줄 제거
+         },
     },
 
     // 깃허브 링크
@@ -154,6 +164,11 @@ const styles = StyleSheet.create({
         padding: '0',
         fontSize: '11px',
         marginTop: '2px',
+        textDecoration: 'none', // 밑줄 제거
+        color: 'inherit', // 부모 요소의 색상 상속
+        ':hover': {
+            textDecoration: 'none', // 호버 상태에서도 밑줄 제거
+         },
     },
 
     // 푸터 오른쪽 영역 스타일

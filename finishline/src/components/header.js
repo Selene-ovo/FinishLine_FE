@@ -11,16 +11,16 @@ import logo1 from '../assets/images/logo1.png';
 function Header() {
     return (
         <header className={css(styles.header)}>
-            {/* 로고 */}
-            <img src={logo1} alt="Logo" className={css(styles.logo)} />
+             {/* 로고 */}
+                <img src={logo1} alt="Logo" className={css(styles.logo)} />
+
 
             {/* 네비게이션 및 로그인 버튼 */}
             <div className={css(styles.headerLinks)}>
                 <nav className={css(styles.navLinks)}>
                     <Link to="/userGuide" className={css(styles.navLink)}>이용 가이드</Link>
                     <Link to="/graduateCheck" className={css(styles.navLink)}>졸업 요건 검사</Link>
-                    {/* <Link to="/기이수과목폴더 이름" className={css(styles.navLink)}>기이수 과목 관리</Link>  
-                    => 기이수 과목 추가시 폴더 추가하고 연결하면 됩니다.*/}
+                    <Link to="/기이수과목폴더 이름" className={css(styles.navLink)}>기이수 과목 관리</Link>  
                 </nav>
                 <button className={css(styles.loginButton)}>로그인</button>
             </div>

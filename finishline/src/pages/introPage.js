@@ -50,7 +50,7 @@ function IntroPage() {
                 <img src={logo3} alt="Finish Line Logo" className={css(styles.mainLogo)} />
                 <button
                     className={css(styles.checkButton)}
-                    onClick={() => navigate('/login')} // 검사하기 버튼 클릭 시 로그인 페이지로 이동
+                    onClick={() => navigate('/loginPage')} // 검사하기 버튼 클릭 시 로그인 페이지로 이동
                 >
                     검사하기
                 </button>
@@ -78,8 +78,9 @@ function IntroPage() {
                         </button>
                         {isLanguageOpen && (
                             <div className={css(styles.dropdownMenu)}>
-                                <a href="영어 선택" className={css(styles.dropdownLink)} onClick={handleLanguageSelect}>English</a>
-                                <a href="한국어 선택" className={css(styles.dropdownLink)} onClick={handleLanguageSelect}>한국어</a>
+                                 {/* a href="" 안에 맞는 링크를 넣기 */}
+                            <a href="" className={css(styles.dropdownLink)} onClick={handleLanguageSelect}>English</a>
+                            <a href="" className={css(styles.dropdownLink)} onClick={handleLanguageSelect}>한국어</a>
                             </div>
                         )}
                     </div>

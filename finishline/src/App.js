@@ -13,14 +13,14 @@ function App() {
             <div>
                 <Routes>
                     <Route path="/" element={<IntroPage />} />
-                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/loginPage" element={<LoginPage />} />
                     <Route path="/userGuide" element={<UserGuide />} />
                     <Route path="/graduateCheck" element={<GraduateCheck />} />
                     {/* <Route path="/completed-courses" element={<div>기이수 과목 관리 페이지 준비 중...</div>} /> */}
                 </Routes>
             </div>
-        </Router>
+        </Router>   
     );
 }
 
-export default App;
+export default App; 
