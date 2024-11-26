@@ -8,7 +8,7 @@ import logo1 from '../assets/images/logo1.png'; // 로고 이미지
 // UserHeader 컴포넌트
 function UserHeader({ additionalBoldLink }) {
     return (
-        <header className={css(styles.loginHeader)}> 
+        <header className={css(styles.userHeader)}> 
 
            {/* 로고 홈 버튼 임시로 로그인페이지 이지만 마이페이지로 설정해두면 될거 같음.*/}
            <Link to="/loginPage"> 
@@ -37,7 +37,7 @@ function UserHeader({ additionalBoldLink }) {
 
 // 스타일 정의
 const styles = StyleSheet.create({
-    loginHeader: {
+    userHeader: {
         width: '100%',
         display: 'flex',
         alignItems: 'center',

@@ -1,7 +1,7 @@
 // src/components/footer.js
 
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // useNavigate 추가
+// import { useTranslation } from 'react-i18next'; // useTranslation 추가
 import { StyleSheet, css } from 'aphrodite';
 import { Link } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ import logo3 from '../assets/images/logo3.png';
 
 // Footer 컴포넌트
 function Footer() {
-    const navigate = useNavigate(); // useNavigate 훅 초기화
+    // const { t, i18n } = useTranslation(); // useTranslation 초기화, 다국어기능 
     const [isLanguageOpen, setIsLanguageOpen] = useState(false); // 언어 드롭다운 상태 관리
     const languageRef = useRef(null); // 드롭다운 메뉴 참조 생성
 
@@ -40,15 +40,24 @@ function Footer() {
 
     return (
         <footer className={css(styles.footer)}>
+
             {/* 푸터 왼쪽 영역 */}
-            <div className={css(styles.footerLeft)}>
+                    <div className={css(styles.footerLeft)}>
                 <div className={css(styles.footerLogoSection)}>
-                    <img src={logo3} alt="Finish Line Logo" className={css(styles.footerLogo)} />
+                    
+                    {/* 로고 이미지 클릭 시 네이버 폼 링크로 연결 */}
+                    <a 
+                        href="네이버 폼링크 넣기, 홈페이지에서 바로연결x 새창이 떠서 들어가기" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                    >
+                        <img src={logo3} alt="Finish Line Logo" className={css(styles.footerLogo)} />
+                    </a>
                     <p className={css(styles.footerLeftText)}>의 사용 후기를 알려주세요!</p>
                 </div>
                 <p className={css(styles.footerService)}>더 나은 서비스로 보답하겠습니다.</p>
                 <div className={css(styles.contactCircle)}>CONTACT</div>
-                <Link to="/팀 이메일 링크" className={css(styles.navLink)}>softwareTeam@cku.ac.kr</Link>
+                <Link to="/팀 이메일 링크" className={css(styles.footerTeam)}>softwareTeam@cku.ac.kr</Link>
                 <Link to="/깃허브링크" className={css(styles.footerGitLink)}>www.softwareTeam.github.com</Link>
             </div>
 
@@ -71,8 +80,8 @@ function Footer() {
                 <div className={css(styles.footerLinks)}>
 
                     {/* a href="" 안에 맞는 링크를 넣기 */}
-                    <a href="" className={css(styles.footerLink)}>개인정보 처리방침</a>
-                    <a href="" className={css(styles.footerLink)}>이용약관</a>
+                    <a href="/누르면 처리방침 이동" className={css(styles.footerLink)}>개인정보 처리방침</a>
+                    <a href="/누르면 약관 이동" className={css(styles.footerLink)}>이용약관</a>
                 </div>
                 <p className={css(styles.footerRightText)}>
                     &copy; 2024 CKU Software Engineering student All rights reserved.
@@ -201,7 +210,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: '5px',
+        gap: '5px', 
     },
 
     // 버튼 안에 화살표

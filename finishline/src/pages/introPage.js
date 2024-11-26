@@ -1,8 +1,10 @@
 // src/pages/introPage.js
 
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // useNavigate 추가
+import { useNavigate } from 'react-router-dom'; // useNavigate 추가 페이지 이동에 필요함
 import { StyleSheet, css } from 'aphrodite';
+import { Link } from 'react-router-dom';
+
 
 // 이미지 파일 import
 import background from '../assets/images/backGround.png';
@@ -58,16 +60,25 @@ function IntroPage() {
 
             {/* 푸터 섹션 */}
             <footer className={css(styles.introFooter)}>
-                {/* 푸터 왼쪽 영역 */}
-                <div className={css(styles.footerLeft)}>
-                    <div className={css(styles.footerLogoSection)}>
+              
+                     {/* 푸터 왼쪽 영역 */}
+                     <div className={css(styles.footerLeft)}>
+                <div className={css(styles.footerLogoSection)}>
+                    
+                    {/* 로고 이미지 클릭 시 네이버 폼 링크로 연결 */}
+                    <a 
+                        href="네이버 폼링크 넣기, 홈페이지에서 바로연결x 새창이 떠서 들어가기" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                    >
                         <img src={logo3} alt="Finish Line Logo" className={css(styles.footerLogo)} />
+                    </a>
                         <p className={css(styles.footerLeftText)}>의 사용 후기를 알려주세요!</p>
                     </div>
                     <p className={css(styles.footerService)}>더 나은 서비스로 보답하겠습니다.</p>
                     <div className={css(styles.contactCircle)}>CONTACT</div>
-                    <p className={css(styles.footerTeam)}>softwareTeam@cku.ac.kr</p>
-                    <p className={css(styles.footerGitLink)}>www.softwareTeam.github.com</p>
+                    <Link to="/팀 이메일 링크" className={css(styles.footerTeam)}>softwareTeam@cku.ac.kr</Link>
+                    <Link to="/깃허브링크" className={css(styles.footerGitLink)}>www.softwareTeam.github.com</Link>
                 </div>
 
                 {/* 푸터 오른쪽 영역 */}
@@ -224,14 +235,27 @@ const styles = StyleSheet.create({
     // 팀 이메일
     footerTeam: {
         margin: '0',
-        fontSize: '10px',
+        padding: '0',
+        fontSize: '11px',
         marginTop: '8px',
+        textDecoration: 'none', // 밑줄 제거
+        color: 'inherit', // 부모 요소의 색상 상속
+        ':hover': {
+            textDecoration: 'none', // 호버 상태에서도 밑줄 제거
+         },
     },
 
     // 깃허브 링크
     footerGitLink: {
-        fontSize: '10px',
+        margin: '0',
+        padding: '0',
+        fontSize: '11px',
         marginTop: '2px',
+        textDecoration: 'none', // 밑줄 제거
+        color: 'inherit', // 부모 요소의 색상 상속
+        ':hover': {
+            textDecoration: 'none', // 호버 상태에서도 밑줄 제거
+         },
     },
 
     // 푸터 오른쪽 영역 스타일
